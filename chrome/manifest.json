@@ -1,17 +1,17 @@
 {
-    "name": "Replace Google CDN",
-    "version": "0.6.0",
+    "name": "Replace Outside CDN",
+    "version": "20.12.16.0",
     "manifest_version": 2,
     "icons": {
       "128": "icons/128.png"
     },
-    "description": "将 Google CDN 替换为国内镜像",
+    "description": "将 Outside CDN 替换为国内镜像",
     "background": {
         "scripts": ["js/background.js"]
     },
     "permissions": [
         "webRequest", "webRequestBlocking", "<all_urls>"
     ],
-    "author": "https://github.com/justjavac",
-    "homepage_url": "https://github.com/justjavac/ReplaceGoogleCDN"
+    "author": "https://github.com/Yuanuo",
+    "homepage_url": "https://github.com/Yuanuo/ReplaceOutsideCDN"
 }
