@@ -35,6 +35,10 @@ chrome.webRequest.onBeforeRequest.addListener(
         url = url.replace('fonts.gstatic.com', 'gstatic.loli.net');
         url = url.replace('www.google.com/recaptcha/', 'www.recaptcha.net/recaptcha/');
         url = url.replace('secure.gravatar.com', 'gravatar.loli.net');
+        /* url = url.replace('code.jquery.com', 'ajax.aspnetcdn.com/ajax/jquery');//将code.jquery改为微软jquery */
+        if (url.indexOf('code.jquery.com') != -1)
+            url = url.replace(/(\/jquery.+?)(\d{1,}\.\d{1,}\.\d{1,})(.*)/g, "/$2$1$3").replace("-.", ".").replace('code.jquery.com', 'cdn.bootcdn.net/ajax/libs/jquery');
+
         return { redirectUrl: url };
     },
     {
@@ -45,6 +49,7 @@ chrome.webRequest.onBeforeRequest.addListener(
             "*://fonts.gstatic.com/*",
             "*://www.google.com/recaptcha/*",
             "*://secure.gravatar.com/*",
+            "*://code.jquery.com/*",
         ]
     },
     ["blocking"]
