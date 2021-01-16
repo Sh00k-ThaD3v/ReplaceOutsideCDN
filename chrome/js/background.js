@@ -36,8 +36,10 @@ chrome.webRequest.onBeforeRequest.addListener(
         url = url.replace('www.google.com/recaptcha/', 'www.recaptcha.net/recaptcha/');
         url = url.replace('secure.gravatar.com', 'gravatar.loli.net');
         /* url = url.replace('code.jquery.com', 'ajax.aspnetcdn.com/ajax/jquery');//将code.jquery改为微软jquery */
-        if (url.indexOf('code.jquery.com') != -1)
-            url = url.replace(/(\/jquery.+?)(\d{1,}\.\d{1,}\.\d{1,})(.*)/g, "/$2$1$3").replace("-.", ".").replace('code.jquery.com', 'cdn.bootcdn.net/ajax/libs/jquery');
+        if (url.indexOf('code.jquery.com/jquery') != -1)
+            url = url.replace(/(\/jquery.+?)(\d+\.\d+\.\d+)(.*)/g, "/$2$1$3").replace("-.", ".").replace('code.jquery.com', 'cdn.bootcdn.net/ajax/libs/jquery');
+		else if (url.indexOf('code.jquery.com') != -1)
+            url = url.replace('code.jquery.com/', 'cdn.bootcdn.net/ajax/libs/jquery');
 
         return { redirectUrl: url };
     },
